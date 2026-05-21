@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos | Usxr</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 100%);
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    #particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.35;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #ec4899, #a855f7);
+      transition: width 0.4s ease;
+    }
+
+    .nav-link:hover:after,
+    .nav-link.active:after {
+      width: 100%;
+    }
+
+    .about-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    }
+  </style>
+</head>
+
+<body class="bg-zinc-950 text-white">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-zinc-950/95 backdrop-blur-2xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+      <div class="flex items-center gap-4">
+        <div class="w-11 h-11 bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-400 rounded-3xl flex items-center justify-center text-3xl font-black shadow-xl hover:rotate-12 transition">
+          U
+        </div>
+
+        <h1 class="text-3xl font-bold title-font tracking-tighter">
+          Usxr
+        </h1>
+      </div>
+
+      <div class="hidden md:flex items-center gap-10 text-lg font-medium">
+
+        <a href="index.html"
+          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
+          <i class="fas fa-home"></i>
+          Accueil
+        </a>
+
+        <a href="aboutme.html"
+          class="nav-link active flex items-center gap-2 text-pink-400">
+          <i class="fas fa-user"></i>
+          À propos
+        </a>
+
+        <a href="skills.html"
+          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
+          <i class="fas fa-code"></i>
+          Skills
+        </a>
+
+        <a href="projets.html"
+          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
+          <i class="fas fa-briefcase"></i>
+          Projets
+        </a>
+
+        <a href="contact.html"
+          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
+          <i class="fas fa-envelope"></i>
+          Contact
+        </a>
+
+      </div>
+
+      <a href="contact.html"
+        class="hidden md:block px-8 py-4 bg-white text-black rounded-3xl font-semibold hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 hover:text-white transition">
+        Me contacter
+      </a>
+
+      <button id="hamburger" class="md:hidden text-4xl p-2">
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="hidden md:hidden fixed top-[73px] left-0 w-full bg-zinc-950 border-t border-white/10 py-8 shadow-2xl z-[100]">
+
+      <div class="flex flex-col px-8 gap-8 text-xl">
+
+        <a href="index.html"
+          class="flex items-center gap-4 hover:text-pink-400">
+          <i class="fas fa-home w-6"></i>
+          Accueil
+        </a>
+
+        <a href="aboutme.html"
+          class="flex items-center gap-4 text-pink-400">
+          <i class="fas fa-user w-6"></i>
+          À propos
+        </a>
+
+        <a href="skills.html"
+          class="flex items-center gap-4 hover:text-pink-400">
+          <i class="fas fa-code w-6"></i>
+          Skills
+        </a>
+
+        <a href="projets.html"
+          class="flex items-center gap-4 hover:text-pink-400">
+          <i class="fas fa-briefcase w-6"></i>
+          Projets
+        </a>
+
+        <a href="contact.html"
+          class="flex items-center gap-4 hover:text-pink-400">
+          <i class="fas fa-envelope w-6"></i>
+          Contact
+        </a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg flex items-center relative flex-1">
+
+    <canvas id="particles"></canvas>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-16">
+
+      <div class="about-card rounded-3xl p-10 md:p-16">
+
+        <h2 class="text-5xl md:text-6xl font-bold title-font leading-tight mb-10 text-center">
+          Bonjour, je suis
+          <span class="text-pink-400">Usxr</span>
+        </h2>
+
+        <div class="space-y-8 text-lg leading-relaxed text-zinc-300">
+
+          <p>
+            Passionné par le développement web et le design d'interfaces,
+            je crée des expériences digitales modernes,
+            fluides et mémorables.
+          </p>
+
+          <p>
+            Spécialisé en <strong>Full Stack</strong>,
+            je maîtrise à la fois le front-end et le back-end,
+            ce qui me permet de concevoir des projets complets
+            et performants.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8 pt-6">
+
+            <div>
+              <h3 class="text-xl font-semibold mb-4 text-pink-400">
+                Mes forces
+              </h3>
+
+              <ul class="space-y-3">
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Design & Animations premium
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Interfaces intuitives
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Performance & SEO
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Code propre et maintenable
+                </li>
+
+              </ul>
+            </div>
+
+            <div>
+
+              <h3 class="text-xl font-semibold mb-4 text-pink-400">
+                Mes valeurs
+              </h3>
+
+              <ul class="space-y-3">
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Attention aux détails
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Expérience utilisateur au centre
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Innovation constante
+                </li>
+
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-emerald-400 mt-1"></i>
+                  Passion pour le beau code
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-12 border-t border-white/10 mt-auto">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+
+        <div class="flex items-center gap-4">
+
+          <div class="w-9 h-9 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center text-xl font-bold">
+            U
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold title-font">
+              Usxr
+            </h3>
+
+            <p class="text-zinc-500 text-sm">
+              Développeur Web Créatif
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-8 text-3xl">
+
+          <a href="#"
+            class="hover:text-pink-400 transition">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="#"
+            class="hover:text-pink-400 transition">
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+        </div>
+
+        <p class="text-sm text-zinc-500">
+          © 2026 Usxr — Tous droits réservés
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    // PARTICLES
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    resizeCanvas();
+
+    class Particle {
+
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+      }
+
+      update() {
+
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width) {
+          this.speedX *= -1;
+        }
+
+        if (this.y < 0 || this.y > canvas.height) {
+          this.speedY *= -1;
+        }
+      }
+
+      draw() {
+
+        ctx.fillStyle = '#c026d3';
+
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#ec4899';
+
+        ctx.beginPath();
+
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fill();
+      }
+    }
+
+    function init() {
+
+      particles = [];
+
+      for (let i = 0; i < 110; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    // MENU BURGER
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+
+      mobileMenu.classList.toggle('hidden');
+
+      hamburger.innerHTML =
+        mobileMenu.classList.contains('hidden')
+          ? '<i class="fas fa-bars"></i>'
+          : '<i class="fas fa-times"></i>';
+    });
+
+  </script>
+
+</body>
+</html>
