@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills | Usxr</title>
+  <title>Projets | Usxr</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     body {
       font-family: 'Inter', sans-serif;
@@ -22,6 +22,10 @@
 
     .title-font {
       font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .hero-bg {
@@ -62,13 +66,23 @@
       width: 100%;
     }
 
-    .tech-card {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    .project-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      transition: all 0.4s ease;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.45);
     }
 
-    .tech-card:hover {
-      transform: translateY(-18px) scale(1.08);
-      box-shadow: 0 25px 40px -10px rgba(236, 72, 153, 0.35);
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(236, 72, 153, 0.5);
+      box-shadow: 0 30px 60px -15px rgba(236, 72, 153, 0.2);
+    }
+
+    .coming-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
     }
   </style>
 </head>
@@ -107,13 +121,13 @@
         </a>
 
         <a href="skills.html"
-          class="nav-link active flex items-center gap-2 text-pink-400">
+          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
           <i class="fas fa-code"></i>
           Skills
         </a>
 
-        <a href="project.html"
-          class="nav-link flex items-center gap-2 hover:text-pink-400 transition">
+        <a href="projets.html"
+          class="nav-link active flex items-center gap-2 text-pink-400">
           <i class="fas fa-briefcase"></i>
           Projets
         </a>
@@ -156,13 +170,13 @@
         </a>
 
         <a href="skills.html"
-          class="flex items-center gap-4 text-pink-400">
+          class="flex items-center gap-4 hover:text-pink-400">
           <i class="fas fa-code w-6"></i>
           Skills
         </a>
 
-        <a href="project.html"
-          class="flex items-center gap-4 hover:text-pink-400">
+        <a href="projets.html"
+          class="flex items-center gap-4 text-pink-400">
           <i class="fas fa-briefcase w-6"></i>
           Projets
         </a>
@@ -177,57 +191,122 @@
     </div>
   </nav>
 
-  <!-- SKILLS -->
+  <!-- HERO -->
   <section class="hero-bg flex items-center relative flex-1">
 
     <canvas id="particles"></canvas>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-16">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-16">
 
-      <h2 class="text-5xl md:text-6xl font-bold title-font text-center mb-16">
-        Mes Compétences
-      </h2>
+      <div class="text-center mb-16">
 
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <h2 class="text-5xl md:text-6xl font-bold title-font mb-6">
+          Mes Projets
+        </h2>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-html5 text-6xl text-orange-500 mb-4"></i>
-          <p class="font-semibold">HTML5</p>
+        <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+          Une sélection de projets créatifs et modernes conçus
+          avec passion et attention aux détails.
+        </p>
+
+      </div>
+
+      <!-- PROJECT GRID -->
+      <div class="grid lg:grid-cols-2 gap-10">
+
+        <!-- PORTFOLIO PROJECT -->
+        <div class="project-card rounded-3xl overflow-hidden">
+
+          <div class="h-56 bg-gradient-to-br from-pink-500/20 via-purple-600/20 to-cyan-400/20 flex items-center justify-center">
+
+            <div class="text-center">
+
+              <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pink-500 to-purple-600 rounded-3xl flex items-center justify-center text-5xl font-black shadow-2xl">
+                U
+              </div>
+
+              <h3 class="text-3xl font-bold title-font">
+                Portfolio Usxr
+              </h3>
+
+            </div>
+
+          </div>
+
+          <div class="p-8 space-y-6">
+
+            <div class="flex items-center gap-3 text-sm">
+
+              <span class="px-4 py-2 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400">
+                Front-End
+              </span>
+
+              <span class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400">
+                UI/UX
+              </span>
+
+            </div>
+
+            <p class="text-zinc-300 leading-relaxed">
+              Portfolio moderne et immersif développé avec HTML,
+              TailwindCSS et JavaScript.
+              Design premium inspiré du cyberpunk avec animations,
+              particules interactives et interface responsive.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+
+              <span class="px-3 py-2 bg-zinc-800 rounded-xl text-sm">
+                HTML5
+              </span>
+
+              <span class="px-3 py-2 bg-zinc-800 rounded-xl text-sm">
+                TailwindCSS
+              </span>
+
+              <span class="px-3 py-2 bg-zinc-800 rounded-xl text-sm">
+                JavaScript
+              </span>
+
+            </div>
+
+            <div class="flex gap-4 pt-4">
+
+              <a href="https://usxr-dev.github.io/portfolio/index.html"
+                class="px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl font-semibold hover:scale-105 transition">
+                Voir le projet
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-css3-alt text-6xl text-blue-500 mb-4"></i>
-          <p class="font-semibold">CSS3 / Tailwind</p>
-        </div>
+        <!-- COMING SOON -->
+        <div class="coming-card rounded-3xl p-10 flex flex-col items-center justify-center text-center min-h-[500px]">
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-js text-6xl text-yellow-400 mb-4"></i>
-          <p class="font-semibold">JavaScript</p>
-        </div>
+          <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-4xl mb-8">
+            <i class="fas fa-code"></i>
+          </div>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-react text-6xl text-cyan-400 mb-4"></i>
-          <p class="font-semibold">React</p>
-        </div>
+          <h3 class="text-4xl font-bold title-font mb-6">
+            D'autres projets arrivent...
+          </h3>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fas fa-fire text-6xl text-orange-500 mb-4"></i>
-          <p class="font-semibold">Next.js</p>
-        </div>
+          <p class="text-zinc-400 text-lg max-w-md leading-relaxed">
+            Je travaille actuellement sur plusieurs projets
+            créatifs et innovants qui seront bientôt disponibles.
+          </p>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-php text-6xl text-indigo-400 mb-4"></i>
-          <p class="font-semibold">PHP</p>
-        </div>
+          <div class="mt-10 flex gap-3">
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fab fa-python text-6xl text-blue-400 mb-4"></i>
-          <p class="font-semibold">Python</p>
-        </div>
+            <span class="w-3 h-3 bg-pink-500 rounded-full animate-bounce"></span>
+            <span class="w-3 h-3 bg-purple-500 rounded-full animate-bounce delay-100"></span>
+            <span class="w-3 h-3 bg-cyan-400 rounded-full animate-bounce delay-200"></span>
 
-        <div class="tech-card bg-zinc-900 p-8 rounded-3xl text-center">
-          <i class="fas fa-database text-6xl text-emerald-400 mb-4"></i>
-          <p class="font-semibold">SQL / MySQL</p>
+          </div>
+
         </div>
 
       </div>
@@ -262,13 +341,11 @@
 
         <div class="flex gap-8 text-3xl">
 
-          <a href="#"
-            class="hover:text-pink-400 transition">
+          <a href="#" class="hover:text-pink-400 transition">
             <i class="fab fa-github"></i>
           </a>
 
-          <a href="#"
-            class="hover:text-pink-400 transition">
+          <a href="#" class="hover:text-pink-400 transition">
             <i class="fab fa-linkedin"></i>
           </a>
 
@@ -315,13 +392,8 @@
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0 || this.x > canvas.width) {
-          this.speedX *= -1;
-        }
-
-        if (this.y < 0 || this.y > canvas.height) {
-          this.speedY *= -1;
-        }
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
       }
 
       draw() {
